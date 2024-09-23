@@ -2,6 +2,7 @@ export class Component {
   constructor(props = {}) {
     this.props = props
     this.element = null
+    // this.todoContext = document.querySelector('#todo-input')
   }
 
   render() {

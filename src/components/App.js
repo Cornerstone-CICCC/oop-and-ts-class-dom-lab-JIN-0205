@@ -1,8 +1,12 @@
 import { Component } from "../common/Component.js";
+import { TodoContext } from "../contexts/TodoContext.js";
 import { AddTodo } from "./AddTodo.js";
 import { TodoList } from "./TodoList.js";
 
 export class App extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
   render() {
     const container = document.createElement('div')
     container.className = 'container'
@@ -12,11 +16,13 @@ export class App extends Component {
       <div id="wrapper-todos"></div>
     `
 
-    const add = new AddTodo().render()
-    const todos = new TodoList().render()
+    const add = new AddTodo()
+    const todos = new TodoList()
+    // const cart = new Cart({ cartContext: this.props.cartContext }).render()
+    // const productList = new ProductList({ cartContext: this.props.cartContext })
 
-    container.querySelector('#wrapper-add').appendChild(add)
-    container.querySelector('#wrapper-todos').appendChild(todos)
+    add.mount(container.querySelector('#wrapper-add'));
+    todos.mount(container.querySelector('#wrapper-todos'));
 
     return container;
   }
